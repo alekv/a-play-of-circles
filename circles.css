@@ -1,0 +1,163 @@
+/*
+-----------------------------
+variables
+-----------------------------
+*/
+
+:root
+{
+	--medium: #70BEB1;
+	--bright: #AADFCD;
+	--bright2: rgba(170,223,205,0.6);
+	--bright3: rgb(121,214,222);
+	--color4: rgb(196,230,213);
+	--color5: rgb(120,212,234);
+	--color6: rgb(74,152,165);
+	--color7: rgb(144,239,255); /* almost white */
+	
+	--bg1: linear-gradient(0deg, var(--bright), var(--bright2));
+	--bg2: linear-gradient(to right, var(--medium), var(--bright));
+	
+	/* I could use 100vw for height too but if I do this I can position a circle by percentage, which is really nice! */
+	--width: 100vw;
+	--height: calc(100vw / 2.35);
+}
+
+/*
+-----------------------------
+base
+-----------------------------
+*/
+
+* { box-sizing: border-box; }
+
+html
+{
+	height: 100%;
+	font-family: serif; /* to easily detect that it's unstyled */
+}
+
+body
+{
+	background: black;
+	
+	/* If I do height:100% without doing border:1px it'll overflow with scroll. Browsers' bug? */
+	margin: 0;
+}
+
+code
+{
+	font-family: consolas,monospace;
+}
+
+a:link, a:visited { color: rgba(255,255,255,0.9); }
+a:link:hover, a:visited:hover { color: rgba(255,255,255,1.0); }
+
+code
+{
+	font-style: normal;
+}
+
+section
+{
+	max-width: 45em;
+	text-align: center;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+h1
+{
+	font-weight: normal;
+	font-size: 2em;
+}
+
+em.number
+{
+	font-family: cambria,"times new roman";
+}
+
+/*
+-----------------------------
+wrapper
+-----------------------------
+*/
+
+div#wrapper
+{
+	display: flex;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+}
+
+/*
+-----------------------------
+the intro message and
+noscript
+-----------------------------
+*/
+
+div#message, noscript
+{
+	min-width: var(--width);
+	min-height: var(--height);
+
+	/* flex here is used to display the text inside the div at the center */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	font-family: cambria,georgia,serif;
+	font-style: italic;
+	color: rgba(255,255,255,0.65);
+	font-size: 1.4rem;
+	background: rgba(255,255,255,0.05);
+}
+
+/*
+-----------------------------
+film
+-----------------------------
+*/
+
+div#film
+{
+	display: none;
+	background: #040E17;
+	
+	width: var(--width); /* necessary to have width because it's a flex child */
+	height: var(--height); /* 2.35 is one of the analogies of film */
+	
+	position: relative;
+	overflow: hidden;
+}
+
+div#film > div
+{
+	position: absolute;
+	
+	/* flex here is used to display the name of the circle at the center */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	/* and something that will look presentable */
+	color: transparent;
+	font-family: arial;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+	
+	/* that's the default, I can modify it */
+	transition-timing-function: linear;
+	
+	/* will stay in their final positions; otherwise they will rewind and move back to their initial ones */
+	/* this actually doesn't effect CSS animations inserted by JavaScript */
+	animation-fill-mode: forwards;
+	
+	/* because the default state is not to appear, and we need it for the animation-fill-mode:forwards to work */
+	opacity: 0; 
+	
+	border-radius: 50%;
+}
+
