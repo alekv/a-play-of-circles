@@ -10,6 +10,6 @@ This demo exists in monochromatic universe where everything is cyan. In a future
 
 The demo isn't coded in a modular way so it'll take some work on your part to use it as a library in your project.
 
-Open `demo.html` to start the demo. You can see it in action on [my websit](https://alekv.com/portfolio/circles/intro.html).
+Open `demo.html` to start the demo. You can see it in action on [my website](https://alekv.com/portfolio/circles/intro.html).
 
 
